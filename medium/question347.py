@@ -16,18 +16,12 @@
 题目数据保证答案唯一，换句话说，数组中前 k 个高频元素的集合是唯一的。
 你可以按任意顺序返回答案。
 """
-import collections
 from typing import List
 
 
+# Todo
 class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
-        count_map = collections.defaultdict()
-        for num in nums:
-            if num not in count_map:
-                count_map[num] = 0
-            count_map[num] += 1
-        print(count_map)
         return None
 
 

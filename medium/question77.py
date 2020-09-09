@@ -16,7 +16,7 @@
 链接：https://leetcode-cn.com/problems/combinations
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 """
-from copy import deepcopy
+import itertools
 from typing import List
 
 
@@ -24,19 +24,19 @@ class Solution:
     def combine(self, n: int, k: int) -> List[List[int]]:
         def find_combine(nums: List[int], start_num: int):
             if len(nums) == k:
-                print(nums)
-                result.append(deepcopy(nums))
+                result.append(nums)
                 return
             for i in range(start_num, n + 1):
-                nums.append(i)
-                find_combine(nums, i + 1)
-                nums.remove(i)
+                find_combine(nums + [i], i + 1)
 
         result = []
         find_combine([], 1)
-        print(result)
         return result
+
+    def combinev2(self, n: int, k: int) -> List[List[int]]:
+        return list(itertools.combinations(range(1, n + 1), k))
 
 
 if __name__ == '__main__':
     assert [[1, 2], [1, 3], [1, 4], [2, 3], [2, 4], [3, 4]] == Solution().combine(4, 2)
+    assert [[1, 2], [1, 3], [1, 4], [2, 3], [2, 4], [3, 4]] == Solution().combinev2(4, 2)
