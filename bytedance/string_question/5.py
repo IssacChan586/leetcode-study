@@ -26,13 +26,12 @@
 
 class Solution:
     def reverseWords(self, s: str) -> str:
-        s = s.lstrip().rstrip()
-        while '  ' in s:
-            s = s.replace('  ', ' ')
         return ' '.join(s.split()[::-1])
 
 
 if __name__ == '__main__':
+    assert "" == Solution().reverseWords("")
+    assert "" == Solution().reverseWords(" ")
     assert "blue is sky the" == Solution().reverseWords("the sky is blue")
     assert "world! hello" == Solution().reverseWords("  hello world!  ")
     assert "example good a" == Solution().reverseWords("a good   example")
