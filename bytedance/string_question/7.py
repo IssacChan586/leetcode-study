@@ -40,14 +40,26 @@ class Solution:
         len_s = len(s)
         if len_s < 4 or len_s > 12:
             return result
-        dot1_max = min(len_s - 4, 3) if s[0] != '0' else 1
+        for len1 in range(3):
+            for len2 in range(3):
+                for len3 in range(3):
+                    len4 = len_s - len1 - len2 - len3 - 3
+                    if len4 < 1 or len4 > 3:
+                        continue
+                    part1, part2, part3, part4 = s[:len1 + 1], s[len1 + 1: len1 + len2 + 2], \
+                                                 s[len1 + len2 + 2: len1 + len2 + len3 + 3], s[len1 + len2 + len3 + 3:]
+                    if (len(part1) > 1 and part1[0] == '0') or (len(part2) > 1 and part2[0] == '0') \
+                            or (len(part3) > 1 and part3[0] == '0') or (len(part4) > 1 and part4[0] == '0'):
+                        continue
+                    if int(part1) <= 255 and int(part2) <= 255 and int(part3) <= 255 and int(part4) <= 255:
+                        result.append('.'.join([part1, part2, part3, part4]))
         return result
 
 
 if __name__ == '__main__':
-    # validator.validate_without_order(Solution().restoreIpAddresses("25525511135"), ["255.255.11.135", "255.255.111.35"])
-    # validator.validate_without_order(Solution().restoreIpAddresses("0000"), ["0.0.0.0"])
-    # validator.validate_without_order(Solution().restoreIpAddresses("1111"), ["1.1.1.1"])
+    validator.validate_without_order(Solution().restoreIpAddresses("25525511135"), ["255.255.11.135", "255.255.111.35"])
+    validator.validate_without_order(Solution().restoreIpAddresses("0000"), ["0.0.0.0"])
+    validator.validate_without_order(Solution().restoreIpAddresses("1111"), ["1.1.1.1"])
     validator.validate_without_order(Solution().restoreIpAddresses("010010"), ["0.10.0.10", "0.100.1.0"])
     validator.validate_without_order(Solution().restoreIpAddresses("101023"),
                                      ["1.0.10.23", "1.0.102.3", "10.1.0.23", "10.10.2.3", "101.0.2.3"])
