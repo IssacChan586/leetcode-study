@@ -25,6 +25,7 @@ n = 8
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 """
 
+
 class Solution:
     def arrangeCoins(self, n: int) -> int:
         left, right, ans = 1, n, 1
@@ -32,8 +33,7 @@ class Solution:
             mid = left + (right - left) // 2
             if (1 + mid) * mid // 2 > n:
                 ans = mid
-                right = mid -1
+                right = mid - 1
             else:
                 left = mid + 1
         return ans
-
