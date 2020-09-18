@@ -19,6 +19,24 @@ from typing import List
 
 class Solution:
     def permuteUnique(self, nums: List[int]) -> List[List[int]]:
+        def backtracking(cur_nums: List[int], used: List[bool]) -> None:
+            if len(cur_nums) == len(nums):
+                ans.append(cur_nums)
+                return
+            for i in range(len(nums)):
+                if i > 0 and nums[i] == nums[i - 1] and not used[i - 1]:
+                    continue
+                if not used[i]:
+                    used[i] = True
+                    backtracking(cur_nums + [nums[i]], used)
+                    used[i] = False
+
+        nums.sort()
+        ans = []
+        backtracking([], [False for _ in range(len(nums))])
+        return ans
+
+    def permuteUniqueV2(self, nums: List[int]) -> List[List[int]]:
         def backtracking(cur_nums: List[int], leaving_nums: List[int]):
             if len(leaving_nums) == 0:
                 if cur_nums not in ans:
