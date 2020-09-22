@@ -130,8 +130,13 @@ dmypy.json
 .idea/
 
 
+# Java
 /.idea
 /target
 /logs
 /reports
 /test-output
+
+leetcode-study.iml
+/leetcode-java/leetcodejava.iml
+/leetcode-java/target
