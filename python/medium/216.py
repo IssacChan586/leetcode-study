@@ -19,7 +19,7 @@
 """
 from typing import List
 
-import validator
+from python import validator
 
 
 class Solution:

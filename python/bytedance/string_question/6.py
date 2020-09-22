@@ -32,7 +32,7 @@
 """
 import os
 
-import validator
+from python import validator
 
 
 class Solution:
@@ -53,7 +53,7 @@ if __name__ == '__main__':
     validator.validate(Solution().simplifyPath(""), "/")
     validator.validate(Solution().simplifyPath("/..."), "/...")
     validator.validate(Solution().simplifyPath("/home/"), "/home")
-    validator.validate(Solution().simplifyPath("/../"), "/")
+    validator.validate(Solution().simplifyPath("../"), "/")
     validator.validate(Solution().simplifyPath("/home//foo/"), "/home/foo")
     validator.validate(Solution().simplifyPath("/home//foo/"), "/home/foo")
     validator.validate(Solution().simplifyPath("/a/./b/../../c/"), "/c")

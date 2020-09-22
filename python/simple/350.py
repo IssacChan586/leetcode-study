@@ -25,7 +25,7 @@
 import collections
 from typing import List
 
-from validator import validate_without_order
+from python.validator import validate_without_order
 
 
 class Solution:

@@ -1,38 +1,38 @@
 """
-给定一个二叉树，返回其节点值自底向上的层次遍历。 （即按从叶子节点所在层到根节点所在的层，逐层从左向右遍历）
+给你一个二叉树，请你返回其按 层序遍历 得到的节点值。 （即逐层地，从左到右访问所有节点）。
 
-例如：
-给定二叉树 [3,9,20,null,null,15,7],
+示例：
+二叉树：[3,9,20,null,null,15,7],
 
     3
    / \
   9  20
     /  \
    15   7
-返回其自底向上的层次遍历为：
+返回其层次遍历结果：
 
 [
-  [15,7],
+  [3],
   [9,20],
-  [3]
+  [15,7]
 ]
 
 来源：力扣（LeetCode）
-链接：https://leetcode-cn.com/problems/binary-tree-level-order-traversal-ii
+链接：https://leetcode-cn.com/problems/binary-tree-level-order-traversal
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 """
 from typing import List
 
-from TreeNode import TreeNode
+from python.TreeNode import TreeNode
 
 
 class Solution:
-    def levelOrderBottom(self, root: TreeNode) -> List[List[int]]:
+    def levelOrder(self, root: TreeNode) -> List[List[int]]:
         def dfs(root: TreeNode, height: int):
             if root:
                 if len(result) <= height:
-                    result.insert(0, [])
-                result[-height - 1].append(root.val)
+                    result.append([])
+                result[height].append(root.val)
                 if not root.left and not root.right:
                     return
                 dfs(root.left, height + 1)
@@ -49,4 +49,4 @@ if __name__ == '__main__':
     tree1.right = TreeNode(20)
     tree1.right.left = TreeNode(15)
     tree1.right.right = TreeNode(7)
-    assert [[15, 7], [9, 20], [3]] == Solution().levelOrderBottom(tree1)
+    assert [[3], [9, 20], [15, 7]] == Solution().levelOrder(tree1)
