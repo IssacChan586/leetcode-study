@@ -138,5 +138,5 @@ dmypy.json
 /test-output
 
 leetcode-study.iml
-/leetcode-java/leetcodejava.iml
+/leetcode-java/*.iml
 /leetcode-java/target
