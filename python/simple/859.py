@@ -38,23 +38,22 @@ class Solution:
         len_a, len_b = len(A), len(B)
         if len_a != len_b:
             return False
+        if A == B:
+            count_a = collections.Counter(A)
+            for ch in count_a.keys():
+                if count_a[ch] > 1:
+                    return True
         diff_count, first_diff_ch_a, first_diff_ch_b = 0, '', ''
-        count_a = collections.Counter(A)
         for i in range(len_a):
             if A[i] != B[i]:
                 if diff_count == 0:
-                    first_diff_ch_a = A[i]
-                    first_diff_ch_b = B[i]
+                    first_diff_ch_a, first_diff_ch_b = A[i], B[i]
                 elif diff_count == 1:
                     if first_diff_ch_a != B[i] or first_diff_ch_b != A[i]:
                         return False
                 else:
                     return False
                 diff_count += 1
-        if diff_count == 0:
-            for count in count_a.values():
-                if count > 1:
-                    return True
         return diff_count == 2
 
 
