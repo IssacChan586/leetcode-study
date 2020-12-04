@@ -22,7 +22,7 @@ candidates中的每个数字在每个组合中只能使用一次。
 """
 from typing import List
 
-from python import validator
+import validator
 
 
 class Solution:

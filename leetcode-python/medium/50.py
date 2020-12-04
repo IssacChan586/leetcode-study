@@ -23,7 +23,7 @@ n 是 32 位有符号整数，其数值范围是[−2^31,2^31 − 1] 。
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 """
 
-from python.validator import validate
+from validator import validate
 
 
 class Solution:

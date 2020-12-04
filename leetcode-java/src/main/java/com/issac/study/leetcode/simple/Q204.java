@@ -12,8 +12,6 @@ public class Q204 {
 		assert new Solution().countPrimes(3) == 1;
 		assert new Solution().countPrimes(4) == 2;
 		assert new Solution().countPrimes(10) == 4;
-
-
 	}
 
 	class Solution {
@@ -22,18 +20,15 @@ public class Q204 {
 				return 0;
 			}
 			boolean[] primeFlag = new boolean[n];
-			for (int i = 2; i < n; i++) {
-				for (int j = 2; j <= i; j++) {
-					if (i * j >= n) {
-						break;
-					}
-					primeFlag[i * j] = true;
-				}
-			}
 			int primeCount = 0;
 			for (int i = 2; i < n; i++) {
 				if (!primeFlag[i]) {
 					primeCount++;
+					if ((long) i * i < n) {
+						for (int j = i * i; j < n; j += i) {
+							primeFlag[j] = true;
+						}
+					}
 				}
 			}
 			return primeCount;

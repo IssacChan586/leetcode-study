@@ -28,7 +28,7 @@ nums 是一个非递减数组
 """
 from typing import List
 
-from python import validator
+import validator
 
 
 class Solution:

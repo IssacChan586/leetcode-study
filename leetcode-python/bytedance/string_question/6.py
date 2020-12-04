@@ -32,7 +32,7 @@
 """
 import os
 
-from python import validator
+import validator
 
 
 class Solution:

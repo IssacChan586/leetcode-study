@@ -16,7 +16,7 @@
 """
 from typing import List
 
-from python.TreeNode import TreeNode
+from TreeNode import TreeNode
 
 
 class Solution:

@@ -15,7 +15,7 @@
 """
 from typing import List
 
-from python.validator import validate
+from validator import validate
 
 
 class Solution:

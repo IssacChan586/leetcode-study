@@ -31,7 +31,7 @@ s 仅由数字组成
 """
 from typing import List
 
-from python import validator
+import validator
 
 
 class Solution:
